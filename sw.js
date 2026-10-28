@@ -1,7 +1,7 @@
 // Service worker: guarda o site no aparelho para abrir sem internet.
 // Ao publicar uma nova versão do site, aumente o número em CACHE para forçar a atualização.
-const CACHE = 'cadastro-v2';
-const SHELL = ['./', 'index.html', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png'];
+const CACHE = 'cadastro-v3';
+const SHELL = ['./', 'index.html', 'config.js', 'manifest.webmanifest', 'fundo.jpg', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
