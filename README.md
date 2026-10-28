@@ -13,12 +13,16 @@ Todo cadastro é salvo primeiro no aparelho. O envio é refeito automaticamente 
 O botão "Baixar backup (.csv)" no fim da página exporta tudo o que está no aparelho.
 
 ## Instalação (uma vez)
-1. **Planilha:** abra a planilha "Cadastro Feira Super Mix – Tudo do Mar". Ela precisa ter na linha 1: `Data/Hora, Nome, Telefone, E-mail, Empresa, Categoria, Vendedor que atendeu, Produtos de interesse, ID (controle)`.
+1. **Planilha:** abra a planilha "Cadastro Feira Super Mix – Tudo do Mar". Ela precisa ter na linha 1: `Data/Hora cadastro, Nome, Telefone, E-mail, Empresa, Categoria, Vendedor que atendeu, Produtos de interesse, ID (controle), Data/Hora sincronização`.
 2. **Apps Script:** na planilha, menu *Extensões > Apps Script*. Apague o conteúdo, cole o de `apps-script/Code.gs` e salve.
 3. *Implantar > Nova implantação > App da Web* — Executar como: **Eu**; Quem pode acessar: **Qualquer pessoa**. Autorize e copie a URL que termina em `/exec`.
 4. **config.js:** cole essa URL em `SYNC_URL` e faça commit.
 5. **Publicar o site:** no GitHub, *Settings > Pages > Deploy from a branch > main / (root)*. O endereço será `https://<usuario>.github.io/cadastro-leads/`.
 6. **No tablet/totem:** abra o endereço **uma vez com internet** (isso baixa o site para uso offline) e use *Adicionar à tela inicial* / *Instalar app*.
+
+## Datas na planilha
+- **Data/Hora cadastro:** momento em que o visitante foi cadastrado no aparelho, no mesmo formato do Jogo da Memória (ex.: `2026-10-28T13:24:45.633Z`, horário UTC).
+- **Data/Hora sincronização:** momento em que a planilha recebeu o cadastro, no formato `28/10/2026 10:25:04` (horário de Brasília). Cadastros feitos offline mostram a hora do cadastro bem antes da hora da sincronização.
 
 ## Atualizando o site
 Depois de alterar `index.html` ou `config.js`, aumente o número de versão em `sw.js` (`const CACHE = 'cadastro-v2'`) para os aparelhos pegarem a versão nova. Abra uma vez com internet.

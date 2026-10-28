@@ -186,7 +186,7 @@ $('form').addEventListener('submit',ev=>{
   const v=validate();
   if(!v){$('msg').textContent='Confira os campos destacados.';return}
   $('msg').textContent='';
-  const d={id:newId(),hora:new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'}),nome:v.nome,tel:fmtTel(v.tel),email:v.email,emp:v.emp,cat:v.cat,vend:v.vend,prod:v.prod};
+  const d={id:newId(),hora:new Date().toISOString(),nome:v.nome,tel:fmtTel(v.tel),email:v.email,emp:v.emp,cat:v.cat,vend:v.vend,prod:v.prod};
   recs.push({d:d,sent:false});persist();            // salva SEMPRE primeiro no aparelho
   const online=navigator.onLine&&!!CFG.SYNC_URL;
   $('okTitle').textContent='Cadastro realizado, '+v.nome.split(/\s+/)[0]+'!';
